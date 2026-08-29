@@ -14,6 +14,9 @@
 #
 set -euo pipefail
 
+# XXX(bnoordhuis) hack to point it to an alternative url
+INPUT_APK_TOOLS_URL="https://raw.githubusercontent.com/quickjs-ng/apk-for-ci/refs/heads/master/apk.static#!sha256!34bb1a96f0258982377a289392d4ea9f3f4b767a4bb5806b1b87179b79ad8a1c"
+
 readonly SCRIPT_PATH=$(readlink -f "$0")
 readonly SCRIPT_DIR=$(cd "$(dirname "$0")" && pwd)
 
