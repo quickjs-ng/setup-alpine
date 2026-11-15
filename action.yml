@@ -84,7 +84,10 @@ runs:
         INPUT_SHELL_NAME: ${{ inputs.shell-name }}
         INPUT_VOLUMES: ${{ inputs.volumes }}
       run: |
-        sudo update-alternatives --set sudo /usr/bin/sudo.ws # sudo-rs doesn't support -E, switch to classic sudo
+        # sudo-rs doesn't support -E, switch to classic sudo
+        if [ -e /usr/bin/sudo.ws ]; then
+          sudo update-alternatives --set sudo /usr/bin/sudo.ws
+        fi
         sudo -E ./setup-alpine.sh
 
       working-directory: ${{ github.action_path }}
